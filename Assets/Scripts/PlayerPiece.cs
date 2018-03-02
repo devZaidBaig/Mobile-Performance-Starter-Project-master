@@ -15,9 +15,6 @@ public class PlayerPiece : MonoBehaviour {
     }
     public void playPiece() {
         hasBeenPlayed = true;
-
-        pieceBeingHeld.GetComponent<Rigidbody>().useGravity = true;
-        pieceBeingHeld.GetComponent<BoxCollider>().enabled = true;
         //Tell our GameLogic script to occupy the game board array at the right location with a player piece
     }
 }

@@ -38,17 +38,15 @@ public class holdPiece : MonoBehaviour {
 					gravityAttractor.transform.position = new Vector3(hit.point.x, hit.point.y + hoverHeight, hit.point.z);
 
 
-					pieceBeingHeld.GetComponent<Rigidbody> ().useGravity = false;
-					pieceBeingHeld.GetComponent<BoxCollider> ().enabled = false;
-
                     pieceBeingHeld.transform.position = Vector3.Lerp(pieceBeingHeld.transform.position, gravityAttractor.transform.position, 0.2f);
 
 
                     if (Input.GetMouseButtonDown(0)) {
                         if (hit.collider.gameObject.tag == "Grid Plate") {
                             pieceBeingHeld.GetComponent<PlayerPiece>().playPiece();
+                            pieceBeingHeld.transform.position = Vector3.Lerp(pieceBeingHeld.transform.position, hit.transform.position, 2f);
                             holdingPiece = false;
-
+                            pieceBeingHeld = null;
                             hit.collider.gameObject.SetActive(false);
                             GameLogic.GetComponent<GameLogic>().playerMove(hit.collider.gameObject);
                         }

@@ -78,7 +78,7 @@ public class GameLogic : MonoBehaviour {
                 if (boardRepresentation[movePosition] == 0) { //See if that slot is open
                     boardRepresentation[movePosition] = 2; //If it's open, set it to our AI move
 
-                    AIPieces[AIMoveCount].transform.position = new Vector3(gridPlates[movePosition].transform.position.x, gridPlates[movePosition].transform.position.y + 0.3f, gridPlates[movePosition].transform.position.z);
+                    AIPieces[AIMoveCount].transform.position = new Vector3(gridPlates[movePosition].transform.parent.transform.position.x, gridPlates[movePosition].transform.parent.transform.position.y, gridPlates[movePosition].transform.parent.transform.position.z);
                     AIMoveCount++;
                 }
 
